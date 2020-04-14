@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>index</title>
+        <link rel="stylesheet" href="base.css">
+    </head>
+    <body>
+        <div class="inputbox">
+            <div> <b> Enter Your ID and Password </b> </div>
+            <br><br>
+            <form class="input" action="secret.html" onsubmit="return setCookie();" method="post">
+                <div class="idform">
+                    <span class="userid"> User ID:  </span>
+                    <input type="text" id="uid" required />
+                </div>
+                <div class="pwdform">
+                    <span class="userpwd"> Password: </span>
+                    <input type="password" id="pwd" required />
+                </div>
+                <button class="login" type="submit">submit</button>
+            </form>
+
+        </div>
+
+        <script>
+            function setCookie(){
+
+                var today = new Date()
+                today.setSeconds(today.getSeconds()+30)
+
+                var id = document.getElementById("uid")
+                document.cookie = 'id='+id.value + ';expires=' + today.toUTCString();
+                document.cookie = 'time='+today+';expires=' + today.toUTCString();
+                return true;
+            }
+        </script>
+
+    </body>
+</html>

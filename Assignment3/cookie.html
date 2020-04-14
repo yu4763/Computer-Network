@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>cookie</title>
+    </head>
+    <body>
+        <script>
+            function get_cookie(name) {
+                var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+                return value? value[2] : null;
+            }
+
+            now = new Date().getSeconds();
+            expire = new Date(get_cookie("time"));
+            expires = expire.getSeconds();
+
+            if(expires > now){
+                present = expires - now;
+            }
+            else{
+                present = expires+60 - now;
+            }
+
+            document.write('Hello ');
+            document.write( get_cookie("id") + '<br /><br />');
+            document.write(present);
+            document.write(' seconds left for until your cookie expires'+ '<br />')
+
+        </script>
+
+    </body>
+</html>
